@@ -1,0 +1,53 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Ubuntu Mono', 'Consolas', 'Menlo', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono';
+    font-size: 15px;
+    color: #4a4545;
+}
+
+a{
+    color: #2298d8;
+    text-decoration: none;
+}
+
+.container{
+    width: 940px;
+    margin: 10px auto;
+}
+
+.documentWrapper{
+    margin: 20px 0px;
+}
+.bodyWrapper{
+    width: 720px;
+    float: right;
+}
+.bodyWrapper .header{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.bodyWrapper .header img{
+    max-width: 100%;
+}
+
+.bodyWrapper .content{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.sidebar{
+    width: 220px; 
+    float: left;
+    padding: 18px 10px;
+}
+
+.footer{
+    font-size: .8em;
+    text-align: center;
+    margin-top: 50px;
+    color: #909090;
+}

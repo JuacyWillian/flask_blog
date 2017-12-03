@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block title %}Search Result{% endblock %}
+
+{% block content %}
+
+<h2>Search Result:</h2>
+
+{% for post in result %}
+    <h3>{{ post.title }}</h3>
+    <div>{{ post.body|markdown }}</div>
+{% endfor %}
+
+{% endblock %}

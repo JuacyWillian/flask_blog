@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+
+{% block styles %}
+{% assets 'css' %}
+<link rel="stylesheet" href="{{ ASSET_URL }}" type="text/css">
+{% endassets %}
+{% endblock styles %}
+
+
+{% block scripts %}
+{% assets 'js_all' %}
+<script type="text/javascript" src="{{ ASSET_URL }}"></script>
+{% endassets %}
+{% endblock scripts %}
+
+
+{% block page_body %}
+
+<div class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="messages">
+        {% for category, message in messages %}
+        <p class="{{ category }}"><strong>{{ category }}:</strong> {{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <div class="documentWrapper">
+        <div class="bodyWrapper">
+            <div class="header">
+                <a href="{{ url_for('core.index') }}">
+                    <img src="{{ url_for('static', filename='img/banner4.png') }}" alt="">
+                </a>
+            </div>
+            <div class="content">
+                {% block content %}{% endblock content %}
+            </div>
+        </div>
+        <div class="sidebar">
+            <h3>About Me!</h3>
+            <p>Mollitia et sunt nemo ipsam assumenda voluptatibus. Repellat iure sed ipsum corporis.</p>
+            <h3>Useful Links</h3>
+            <ul>
+                <li><a href="http://click.pocoo.org/">The Click Website</a></li>
+                <li><a href="http://pypi.python.org/pypi/click">Click @ PyPI</a></li>
+                <li><a href="http://github.com/mitsuhiko/click">Click @ github</a></li>
+                <li><a href="http://github.com/mitsuhiko/click/issues">Issue Tracker</a></li>
+            </ul>
+            <h3>Versions</h3>
+            <ul class="versions">
+                <li>
+                    <a href="." class="current">Development</a>
+                    <span class="note">(unstable)</span>
+                </li>
+                <li>
+                    <a href="./../6/">Click 6.x</a>
+                    <span class="note">(stable)</span>
+                </li>
+                <li>
+                    <a href="./../5/">Click 5.x</a>
+                    <span class="note">(stable)</span>
+                </li>
+                <li>
+                    <a href="./../4/">Click 4.x</a>
+                </li>
+            </ul>
+            <div id="searchbox">
+                <h3>Quick search</h3>
+                <form class="search" action="{{ url_for('core.search') }}" method="post">
+                    <input type="text" name="query" size="17">
+                    <input type="submit" value="Go">
+                </form>
+            </div>
+        </div>
+        <div class="clearer"></div>
+    </div>
+    <div class="footer">
+        © Copyright 2017, Juacy Willian.
+        Inspired by <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+    </div>
+</div>
+
+{% endblock page_body %}

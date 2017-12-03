@@ -1,0 +1,59 @@
+{% extends 'auth/auth_base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="messages">
+        {% for category, message in messages %}
+        <p class="{{ category }}"><strong>{{ category }}:</strong> {{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+    <form action="{{ url_for('auth.register') }}" method="post">
+        {{ form.csrf_token }}
+
+        {{ form.username.label }}<br>
+        {% if form.username.errors %}
+        <div class="messages">
+        {% for error in form.username.errors %}
+        <p class="error">{{ error }}</p>
+        {% endfor %}
+        </div>
+        {% endif %}
+        {{ form.username }}<br>
+
+        {{ form.email.label }}
+        {% if form.email.errors %}
+        <div class="messages">
+        {% for error in form.email.errors %}
+        <p class="error">{{ error }}</p>
+        {% endfor %}
+        </div>
+        {% endif %}
+        {{ form.email }}<br>
+
+        {{ form.password.label }}
+        {% if form.password.errors %}
+        <div class="messages">
+        {% for error in form.password.errors %}
+        <p class="error">{{ error }}</p>
+        {% endfor %}
+        </div>
+        {% endif %}
+        {{ form.password }}<br>
+
+        {{ form.submit }}<br>
+    </form>
+
+    <div class="postformmsg">
+        <p>
+            You already have an account?<br>
+            <a href="{{ url_for('auth.login')}}">Click here to login.</a>
+        </p>
+    </div>
+
+{% endblock %}

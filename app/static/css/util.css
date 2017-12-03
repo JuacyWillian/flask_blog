@@ -1,0 +1,32 @@
+.messages p{
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px 0px;
+    font-size: .9em;
+}
+
+.error{
+    background-color: #f8d7da;
+    border: 1px solid #dea5aa;
+}
+
+.warning{
+    background-color: #ffefbd;
+    border: 1px solid #e6d397;
+}
+
+.info{
+    background-color: #e7e8ea;
+    border: 1px solid #ccc;
+}
+
+.success{
+    background-color: #d4edda;
+    border: 1px solid #95c7a1;
+}
+
+.left{float:left;}
+.right{float:right;}
+.clearer{clear:both;}
+

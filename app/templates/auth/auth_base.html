@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block styles %}
+    {% assets 'auth_style' %}
+    <link rel="stylesheet" href="{{ ASSET_URL }}" type="text/css">
+    {% endassets %}
+{% endblock styles %}
+
+
+{% block scripts %}
+    {% assets 'auth_script' %}
+    <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+    {% endassets %}
+{% endblock scripts %}
+
+
+{% block page_body %}
+
+<div class="container">
+
+    <header>
+        <a href="{{ url_for('core.index') }}">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="">
+        </a>
+        <h1>{{ sitename }}</h1>
+    </header>
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer>
+        <ul class="inline">
+            <li>{{ sitename }}</li>
+            <li>About!</li>
+            <li>Contact</li>
+        </ul>
+    </footer>
+
+</div>
+
+{% endblock page_body %}
+
+
+

@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+
+<div class="posts">
+{% for post in posts %}
+<div class="post">
+    <h2>{{ post.title }}</h2>
+    <div>{{ post.body|markdown }}</div>
+</div>
+{% endfor %}
+</div>
+{% endblock content %}

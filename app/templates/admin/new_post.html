@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<form action="{{ url_for('admin.new_post') }}" method="post">
+    {{ form.csrf_token }}
+
+    {{ form.title.label}}<br>
+    {% if form.title.errors %}
+        {% for error in form.body.errors %}
+            <p class="error">{{ error }}</p>
+        {% endfor %}
+    {% endif %}
+    {{ form.title}}<br>
+
+    {{ form.body.label }}<br>
+    {% if form.body.errors %}
+        {% for error in form.body.errors %}
+            <p class="error">{{ error }}</p>
+        {% endfor %}
+    {% endif %}
+    {{ form.body }}<br>
+
+    {{ form.publish }} {{ form.publish.label }}<br>
+
+    {{ form.submit }}
+</form>
+
+{% endblock content %}
